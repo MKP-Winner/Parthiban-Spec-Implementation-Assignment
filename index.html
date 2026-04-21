@@ -5,8 +5,74 @@
     <title>Spec Implementation Assignment</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .section {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        td {
+            width: 25px;
+            height: 25px;
+            border: 1px solid #ccc;
+        }
+
+        .start { background-color: yellow; }
+        .end { background-color: red; }
+        .wall { background-color: black; }
+        .visited { background-color: lightblue; }
+        .path { background-color: green; }
+    </style>
 </head>
 <body>
-    <h1>Spec Implementation Assignment</h1>
+    <h2>BFS Pathfinder</h2>
+
+<div class="container">
+    <div class="section">
+        <h3>Pick Walls / Setup</h3>
+
+        Length of grid:
+        <input id="rows" type="number"><br><br>
+
+        Width of grid:
+        <input id="cols" type="number"><br><br>
+
+        <b>Start</b><br>
+        X: <input id="startX" type="number">
+        Y: <input id="startY" type="number"><br><br>
+
+        <b>End</b><br>
+        X: <input id="endX" type="number">
+        Y: <input id="endY" type="number"><br><br>
+
+        <button onclick="createGrid()">Create Grid</button>
+        <button onclick="runBFS()">Run BFS</button>
+        <button onclick="setMode('wall')">Pick Walls</button>
+    </div>
+
+    <div class="section">
+        <h3>Grid</h3>
+
+        <div>Width →</div>
+        <table id="grid"></table>
+        <div>↓ Length</div>
+    </div>
+
+</div>
 </body>
 </html>
