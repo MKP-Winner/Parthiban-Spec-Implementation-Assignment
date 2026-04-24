@@ -129,7 +129,6 @@ function handleClick(cell) {
 
     let node = pathfinder.grid[r][c];
 
-    // Toggle wall on/off
     node.isWall = !node.isWall;
     cell.classList.toggle("wall");
 }
