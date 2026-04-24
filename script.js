@@ -80,7 +80,6 @@ class Pathfinder {
 
 let pathfinder;
 let startNode, endNode;
-let mode = "wall";
 
 function createGrid() {
     let rows = +document.getElementById("rows").value;
@@ -130,10 +129,9 @@ function handleClick(cell) {
 
     let node = pathfinder.grid[r][c];
 
-    if (mode === "wall") {
-        node.isWall = true;
-        cell.classList.add("wall");
-    }
+    // Toggle wall on/off
+    node.isWall = !node.isWall;
+    cell.classList.toggle("wall");
 }
 
 async function runBFS() {
@@ -167,8 +165,3 @@ function getCell(r, c) {
 function sleep(ms) {
     return new Promise(res => setTimeout(res, ms));
 }
-
-function setMode(m) {
-    mode = m;
-}
-
